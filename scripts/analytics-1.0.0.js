@@ -1,19 +1,23 @@
 (function() {
-	// Ваша логіка для відстеження користувацької активності
+	// Логіка для відстеження перегляду сторінки
 	function trackPageView() {
 		console.log("Page view tracked!");
-		// Додайте іншу логіку для відстеження
 	}
 	
-	// Виклик функції під час завантаження сторінки
-	window.addEventListener('load', trackPageView);
+	// Функція для відстеження кліків на кнопках
+	function trackClick(event) {
+		const element = event.target;
+		if (element.tagName === 'BUTTON') {
+			console.log("Button clicked:", element);
+			// Додайте логіку для обробки кліка
+		}
+	}
 	
-	// Додайте інші методи відстеження, наприклад, кліки
-	window.trackClick = function(element) {
-		console.log("Element clicked:", element);
-		// Додайте логіку для обробки кліків
-	};
+	// Додаємо обробник подій при завантаженні сторінки
+	window.addEventListener('load', () => {
+		trackPageView();
+		
+		// Додаємо обробник подій на document для відстеження кліків на кнопках
+		document.addEventListener('click', trackClick);
+	});
 })();
-
-
-// https://cdn.jsdelivr.net/gh/artemats/analytics/scripts/analytics-1.0.0.js
