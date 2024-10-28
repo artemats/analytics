@@ -1,11 +1,19 @@
-fetch('http://localhost:3000/api/hello', {
-	method: 'POST',
-	headers: {
-		'Content-Type': 'application/json',
-	},
-	body: JSON.stringify({ name: 'John Doe' }),
-})
-	.then(response => response.json())
-	.then(data => console.log(data));
+(function() {
+	// Ваша логіка для відстеження користувацької активності
+	function trackPageView() {
+		console.log("Page view tracked!");
+		// Додайте іншу логіку для відстеження
+	}
+	
+	// Виклик функції під час завантаження сторінки
+	window.addEventListener('load', trackPageView);
+	
+	// Додайте інші методи відстеження, наприклад, кліки
+	window.trackClick = function(element) {
+		console.log("Element clicked:", element);
+		// Додайте логіку для обробки кліків
+	};
+})();
 
-console.log('hello scripts')
+
+// https://cdn.jsdelivr.net/gh/artemats/analytics/scripts/analytics-1.0.0.js
