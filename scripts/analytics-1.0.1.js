@@ -1,4 +1,8 @@
 (function() {
+	console.log(document.currentScript.src)
+	const ID = document.currentScript.src.split('id=')[1]
+	console.log("ID:", ID)
+	
 	// Логіка для відстеження перегляду сторінки
 	function trackPageView() {
 		console.log("Page view tracked!");
