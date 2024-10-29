@@ -1,6 +1,6 @@
 (function() {
 	console.log(document.currentScript.src)
-	const ID = document.currentScript.src.split('id=')[1]
+	const ID = document.currentScript.src.split('id=')[1] || null
 	console.log("ID:", ID)
 	
 	// Логіка для відстеження перегляду сторінки
