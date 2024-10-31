@@ -10,7 +10,7 @@
 			projectId: ID,
 			userAgent: navigator.userAgent,
 			ip: await getIPFromAmazon(),
-			href: window.location.href,
+			href: window.location.pathname,
 			screenSize: `${window.screen.width}x${window.screen.height}`,
 			timestamp: new Date().toLocaleString(),
 			number: 1,
@@ -27,6 +27,20 @@
 			console.log('visit, response ', response)
 		})
 	})
+	
+	// Відслідковуємо AJAX запити та формуємо дані відвідувань
+	const oldXHR = window.XMLHttpRequest;
+	
+	function newXHR() {
+		const realXHR = new oldXHR();
+		realXHR.addEventListener("readystatechange", function() {
+			if(realXHR.readyState === 4 && realXHR.status === 200){
+				console.log('router changed')
+			}
+		}, false);
+		return realXHR;
+	}
+	window.XMLHttpRequest = newXHR;
 	
 	// Формуємо стек даних про відвідувача сайту
 	async function userData() {
