@@ -1,0 +1,15 @@
+.avatar{
+	display: inline-flex;
+	align-items: center;
+	
+		&-thumb{
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			border: 5px #ddd solid;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 8px;
+		}
+}
